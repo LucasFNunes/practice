@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const Empresas = new Schema({
   name: { type: String, required: true },
   cnpj: { type: Number, default: 1, required: true },
-  Produtos: [{ type: String, default: [] }],
+  Produtos: [{ ProdutoID: { type: String } }],
   userID: { type: String, required: true },
 });
 
