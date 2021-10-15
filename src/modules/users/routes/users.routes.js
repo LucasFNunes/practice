@@ -29,15 +29,7 @@ routesUser.post("/create", async (req, res) => {
   if (body.name.length > 20) {
     return res.status(400).json({ msg: "Nome muito grande." });
   }
-  if (body.nameEmpresa.length > 100) {
-    return res.status(400).json({ msg: "Nome da Empresa muito grande." });
-  }
-  if (body.nameProduto.length > 50) {
-    return res.status(400).json({ msg: "Nome do Produto muito grande." });
-  }
-  if (body.cnpj.length > 14) {
-    return res.status(400).json({ msg: "CNPJ invalido." });
-  }
+
   const user = await users.create(body);
   return res.json(user);
 });

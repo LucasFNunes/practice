@@ -13,6 +13,7 @@ async function execute({ email, password }) {
     {
       idUser: user._id,
       name: user.name,
+      isAdmin: user.isAdmin,
     },
     process.env.JWT_KEY,
     {

@@ -6,6 +6,7 @@ const users = new Schema({
   age: { type: Number, default: 1 },
   email: { type: String, required: true },
   password: String,
+  isAdmin: { type: Boolean, default: false },
 });
 
 const Produtos = new Schema({
