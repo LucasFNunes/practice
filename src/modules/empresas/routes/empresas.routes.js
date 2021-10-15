@@ -11,4 +11,6 @@ routesEmpresas.get("/findall", ensureAuth, EmpresaController.findAll);
 
 routesEmpresas.post("/create", ensureAuth, EmpresaController.create);
 
+routesEmpresas.patch("/update", ensureAuth, EmpresaController.update);
+
 module.exports = routesEmpresas;
