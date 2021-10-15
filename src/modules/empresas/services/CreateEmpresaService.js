@@ -10,6 +10,7 @@ async function execute(body) {
   const Empresa = await empresas.create({
     name: body.nameEmpresa,
     cnpj: body.cnpj,
+    userID: body.userID,
   });
 
   return Empresa;

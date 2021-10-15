@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 
 async function execute({ email, password }) {
   const user = await users.findOne({ email });
+  console.log(user);
   if (!user) throw Error("Usuário ou senha não encontrado.");
 
   if (user.password !== password)
@@ -19,7 +20,7 @@ async function execute({ email, password }) {
     }
   );
 
-  return { user: { name: user.name, email: user.email }, token };
+  return { user: { name: user.name, email: user.email, id: user._id }, token };
 }
 
 module.exports = { execute };

@@ -2,7 +2,7 @@ const ListAllEmpresasService = require("../services/ListAllEmpresasService");
 const CreateEmpresaService = require("../services/CreateEmpresaService");
 
 async function findAll(req, res) {
-  const items = await ListAllEmpresasService.execute();
+  const items = await ListAllEmpresasService.execute(req.user);
 
   return res.send({ items });
 }

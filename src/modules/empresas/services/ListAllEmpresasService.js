@@ -1,7 +1,9 @@
 const empresas = require("../schemas/schema.js");
 
-async function execute() {
-  const listEmpresas = await empresas.find();
+async function execute(userID) {
+  const listEmpresas = await empresas.find({
+    userID,
+  });
 
   return listEmpresas;
 }
