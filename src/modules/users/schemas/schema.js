@@ -11,7 +11,6 @@ const users = new Schema({
 
 const Produtos = new Schema({
   nameProduto: { type: String, required: true },
-  servicos: [{ nome: { type: String, required: true }, qtd: { type: Number } }],
 });
 
 module.exports = mongoose.model("Users", users);
