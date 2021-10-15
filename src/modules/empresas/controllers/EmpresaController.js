@@ -1,6 +1,7 @@
 const ListAllEmpresasService = require("../services/ListAllEmpresasService");
 const CreateEmpresaService = require("../services/CreateEmpresaService");
-const UpdateEmpresas = require("../services/UpdateEmpresas");
+const UpdateEmpresas = require("../services/UpdateEmpresasService");
+const DeleteEmpresasService = require("../services/DeleteEmpresasService");
 
 async function findAll(req, res) {
   const items = await ListAllEmpresasService.execute(req.user, req.isAdmin);
@@ -26,4 +27,18 @@ async function update(req, res) {
     return res.status(400).json({ msg: e.message });
   }
 }
-module.exports = { findAll, create, update };
+async function deleteEmpresa(req, res) {
+  try {
+    const item = await DeleteEmpresasService.execute(
+      req.params.id,
+      req.user,
+      req.isAdmin
+    );
+
+    return res.send({ item });
+  } catch (e) {
+    return res.status(400).json({ msg: e.message });
+  }
+}
+
+module.exports = { findAll, create, update, deleteEmpresa };

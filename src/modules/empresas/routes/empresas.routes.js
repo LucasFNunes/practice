@@ -13,4 +13,10 @@ routesEmpresas.post("/create", ensureAuth, EmpresaController.create);
 
 routesEmpresas.patch("/update", ensureAuth, EmpresaController.update);
 
+routesEmpresas.delete(
+  "/delete/:id",
+  ensureAuth,
+  EmpresaController.deleteEmpresa
+);
+
 module.exports = routesEmpresas;
