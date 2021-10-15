@@ -5,8 +5,8 @@ const routesAuth = require("../../modules/authenticate/routes/authenticate.route
 
 const routes = Router();
 
-routes.use('/users', routesUser);
+routes.use("/users", routesUser);
 
-routes.use('/authenticate', routesAuth);
+routes.use("/authenticate", routesAuth);
 
 module.exports = routes;

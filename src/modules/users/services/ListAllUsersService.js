@@ -1,9 +1,9 @@
-const users = require("../schemas/user.js");
+const users = require("../schemas/schema.js");
 
-async function execute(){
-    const listUsers = await users.find();
+async function execute() {
+  const listUsers = await users.find();
 
-    return listUsers;
+  return listUsers;
 }
 
 module.exports = { execute };
