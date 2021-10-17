@@ -9,9 +9,4 @@ const users = new Schema({
   isAdmin: { type: Boolean, default: false },
 });
 
-const Produtos = new Schema({
-  nameProduto: { type: String, required: true },
-});
-
 module.exports = mongoose.model("Users", users);
-//module.exports = mongoose.model("Produtos", Produtos);
