@@ -1,13 +1,11 @@
 const users = require("../../users/schemas/schema");
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
 
 async function execute({ email, password }) {
   const user = await users.findOne({ email });
-  console.log(user);
-  if (!user) throw Error("Usuário ou senha não encontrado.");
 
-  if (user.password !== password)
-    throw Error("Usuário ou senha não encontrado.");
+  if (!user) throw Error("Usuário ou senha não encontrado.");
 
   const token = jwt.sign(
     {
