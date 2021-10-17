@@ -1,12 +1,5 @@
-const ListAllServicosService = require("../services/ListAllServicosService");
 const CreateServicosService = require("../services/CreateServicosService");
 const DeleteServicosService = require("../services/DeleteServicosService");
-
-async function findAll(req, res) {
-  const items = await ListAllServicosService.execute(req.user, req.isAdmin);
-
-  return res.send({ items });
-}
 
 async function create(req, res) {
   try {
@@ -32,4 +25,4 @@ async function deleteServicos(req, res) {
   }
 }
 
-module.exports = { findAll, create, deleteServicos };
+module.exports = { create, deleteServicos };

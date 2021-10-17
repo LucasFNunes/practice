@@ -5,8 +5,6 @@ const ServicosController = require("../controllers/ServicosController");
 
 const routesServicos = Router();
 
-routesServicos.get("/findall", ensureAuth, ServicosController.findAll);
-
 routesServicos.post("/create", ensureAuth, ServicosController.create);
 
 routesServicos.delete(
