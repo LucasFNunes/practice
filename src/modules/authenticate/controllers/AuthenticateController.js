@@ -11,7 +11,7 @@ async function auth(req, res) {
 
     return res.send({ token, user });
   } catch (e) {
-    return res.status(400).send({ error: "Usuário ou senha não encontrado." });
+    return res.status(400).send({ error: e.message });
   }
 }
 

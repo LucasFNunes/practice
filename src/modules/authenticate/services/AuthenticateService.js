@@ -6,7 +6,8 @@ async function execute({ email, password }) {
   const user = await users.findOne({ email });
 
   if (!user) throw Error("Usuário ou senha não encontrado.");
-
+  if (!(await bcrypt.compare(password, user.password)))
+    throw Error("Usuário ou senha não encontrado.");
   const token = jwt.sign(
     {
       idUser: user._id,

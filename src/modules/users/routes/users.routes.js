@@ -29,6 +29,10 @@ routesUser.post("/create", async (req, res) => {
   if (body.name.length > 20) {
     return res.status(400).json({ msg: "Nome muito grande." });
   }
+  const ExistUser = await users.findOne({ email: body.email });
+  if (ExistUser) {
+    return res.status(400).json({ msg: "Email já Cadastrado." });
+  }
 
   const user = await users.create(body);
   return res.json(user);

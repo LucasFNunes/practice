@@ -7,6 +7,12 @@ async function execute(body) {
   if (body.cnpj.length > 14) {
     throw Error("CNPJ invalido.");
   }
+
+  const ExistEmpresa = await empresas.findOne({ cnpj: body.cnpj });
+  if (ExistEmpresa) {
+    throw Error("Cnpj já Cadastrado.");
+  }
+
   const Empresa = await empresas.create({
     name: body.nameEmpresa,
     cnpj: body.cnpj,
