@@ -1,15 +1,15 @@
 const produtos = require("../schemas/schema.js");
 
 async function execute(_id, userID, isAdmin) {
-  const Empresa = await empresas.findOne({ _id });
-  if (!Empresa) {
-    throw Error("Empresa Inexiste");
+  const Produtos = await produtos.findOne({ _id });
+  if (!Produtos) {
+    throw Error("Produto Inexiste");
   }
-  if (!isAdmin && Empresa.userID != userID) {
+  if (!isAdmin && Produtos.userID != userID) {
     throw Error("Não é possivel editar um produto que não é de sua autoria.");
   }
-  await empresas.findOneAndDelete({ _id });
-  return { msg: "Empresa apagado com sucesso!" };
+  await produtos.findOneAndDelete({ _id });
+  return { msg: "Produto apagado com sucesso!" };
 }
 
 module.exports = { execute };

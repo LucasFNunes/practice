@@ -11,7 +11,6 @@ async function execute(body) {
   }
   const Produto = await produtos.create({
     name: body.nameProduto,
-    servicos: body.servicos,
   });
   await Empresas.findOneAndUpdate(
     { _id: body.empresaid },
