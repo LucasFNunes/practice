@@ -6,13 +6,11 @@ async function execute(body) {
   if (!body.email) {
     throw Error("É necessario um email.");
   }
-  console.log("b", user);
 
   const User = await user.findOne({ email: body.email });
   if (!User) {
     throw Error("Email não Cadastrado.");
   }
-  console.log("a", User);
 
   const token = crypto.randomBytes(20).toString("hex");
 
@@ -29,7 +27,6 @@ async function execute(body) {
     },
     { new: true }
   );
-  console.log(update);
 
   mailer.sendMail({
     to: body.email,
