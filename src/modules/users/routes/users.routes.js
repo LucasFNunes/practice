@@ -17,4 +17,8 @@ routesUser.patch("/update", ensureAuth, UsersController.update);
 
 routesUser.delete("/delete/:id", ensureAuth, UsersController.deleteUser);
 
+routesUser.post("/forgotPassword", UsersController.forgotPassword);
+
+routesUser.post("/resetPassword", UsersController.resetPassword);
+
 module.exports = routesUser;

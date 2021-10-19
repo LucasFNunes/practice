@@ -4,6 +4,8 @@ const ListByAgeUsersService = require("../services/ListByAgeUsersService");
 const CreateUsersService = require("../services/CreateUsersService");
 const DeleteUsersService = require("../services/DeleteUsersService");
 const UpdateUsersService = require("../services/UpdateUsersService");
+const ForgotPasswordService = require("../services/ForgotPasswordService");
+const ResetPasswordService = require("../services/ResetPasswordService");
 
 async function findAll(req, res) {
   const items = await ListAllUsersService.execute();
@@ -53,4 +55,32 @@ async function deleteUser(req, res) {
     return res.status(400).json({ msg: e.message });
   }
 }
-module.exports = { findAll, findFilter, create, update, deleteUser };
+
+async function forgotPassword(req, res) {
+  try {
+    const item = await ForgotPasswordService.execute(req.body);
+
+    return res.send({ item });
+  } catch (e) {
+    return res.status(400).json({ msg: e.message });
+  }
+}
+
+async function resetPassword(req, res) {
+  try {
+    const item = await ResetPasswordService.execute(req.body);
+
+    return res.send({ item });
+  } catch (e) {
+    return res.status(400).json({ msg: e.message });
+  }
+}
+module.exports = {
+  findAll,
+  findFilter,
+  create,
+  update,
+  deleteUser,
+  forgotPassword,
+  resetPassword,
+};

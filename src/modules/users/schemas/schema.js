@@ -7,6 +7,8 @@ const users = new Schema({
   age: { type: Number, default: 1 },
   email: { type: String, unique: true, required: true },
   password: String,
+  passwordResetToken: { type: String, select: false },
+  passwordResetExpires: { type: Date, select: false },
   isAdmin: { type: Boolean, default: false },
 });
 
