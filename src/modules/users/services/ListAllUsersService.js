@@ -3,11 +3,9 @@ const users = require("../schemas/schema.js");
 async function execute(userID, isAdmin) {
   const match = {};
   if (!isAdmin) {
-    match.userID = userID;
+    match._id = userID;
   }
-
   const listUsers = await users.find(match);
-
   return listUsers;
 }
 

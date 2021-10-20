@@ -19,6 +19,7 @@ async function execute(body) {
     age: body.age,
     email: body.email,
     password: body.password,
+    isAdmin: body.isAdmin,
   });
 
   return User;

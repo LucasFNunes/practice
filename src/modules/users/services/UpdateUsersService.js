@@ -5,9 +5,11 @@ async function execute(body, userID, isAdmin) {
   if (!Usuarios) {
     throw Error("Usuario Inexiste");
   }
-  if (!isAdmin && Usuarios.userID != userID) {
+
+  if (!isAdmin && Usuarios._id != userID) {
     throw Error("Não é possivel editar um Usuario que não é de sua autoria.");
   }
+
   if (body.age <= 18) {
     throw Error("A idade tem que ser maior que dezoito anos.");
   }

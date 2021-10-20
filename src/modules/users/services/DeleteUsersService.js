@@ -5,7 +5,7 @@ async function execute(_id, userID, isAdmin) {
   if (!Users) {
     throw Error("Usuario Inexiste");
   }
-  if (!isAdmin && Users.userID != userID) {
+  if (!isAdmin && Users._id != userID) {
     throw Error("Não é possivel editar um Usuario que não é de sua autoria.");
   }
   await users.findOneAndDelete({ _id });

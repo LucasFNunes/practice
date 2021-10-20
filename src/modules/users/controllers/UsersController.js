@@ -8,7 +8,7 @@ const ForgotPasswordService = require("../services/ForgotPasswordService");
 const ResetPasswordService = require("../services/ResetPasswordService");
 
 async function findAll(req, res) {
-  const items = await ListAllUsersService.execute();
+  const items = await ListAllUsersService.execute(req.user, req.isAdmin);
 
   return res.send({ items });
 }
@@ -16,7 +16,11 @@ async function findAll(req, res) {
 async function findFilter(req, res) {
   const idade = req.query.age;
 
-  const listUsersAge = await ListByAgeUsersService.execute(idade);
+  const listUsersAge = await ListByAgeUsersService.execute(
+    idade,
+    req.isAdmin,
+    req.user
+  );
 
   return res.json({ items: listUsersAge });
 }

@@ -5,7 +5,6 @@ const DeleteProdutosService = require("../services/DeleteProdutosService");
 
 async function findAll(req, res) {
   const items = await ListAllProdutosService.execute(req.user, req.isAdmin);
-
   return res.send({ items });
 }
 
