@@ -1,4 +1,4 @@
-const ListAllEmpresasService = require("../services/ListAllEmpresasService");
+import ListAllEmpresasService = "../services/ListAllEmpresasService";
 const CreateEmpresaService = require("../services/CreateEmpresaService");
 const UpdateEmpresas = require("../services/UpdateEmpresasService");
 const DeleteEmpresasService = require("../services/DeleteEmpresasService");
